@@ -20,9 +20,20 @@ app.get("/budget/", (req, res) => {
   res.render("index.ejs", {budgetAll: budget});
 });
 
+// New route
+app.get("/budget/new", (req, res) => {
+    res.render("new.ejs")
+})
+
 // show route - show a specific drink
 app.get("/budget/:id", (req, res) => {
   res.render("show.ejs", { expenditure: budget[req.params.id] });
+});
+
+// Post route
+app.post('/budget', (req, res) => {
+  budget.push(req.body);
+  res.redirect('/budget'); //send the user back to /fruits
 });
 
 

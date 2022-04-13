@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/normalize.css" />
+    <link rel="stylesheet" href="/static/skeleton.css" />    
+    <title>Budgtr App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Add a new item</h1>
+
+        <form action="/budget" method="post">
+            <div><label>Date: </label><input type="text" name="date" placeholder="Month day" required/></div>
+            <div><label>Name: </label><input type="text" name="name" placeholder="Item Name" required/></div>
+            <div><label>Amount: </label><input type="text" name="amount" placeholder="Numbers only" required/></div>
+            <div><label>From:</label> <input type="text" name="from" placeholder="Who gave/received this" /></div>
+            <div><label>Tags: </label><input type="text" name="tags"/></div>
+            <div><input type="submit" value="Add Deposit or Withdrawl"/></div>
+
+        </form>
+    </div>
+    
+</body>
+</html>
