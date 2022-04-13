@@ -4,6 +4,8 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const budget = require("./models/budget.js");
+let bankAccount = 0;
+
 
 // Declare middleware
 app.use("/static", express.static("public"));
@@ -17,7 +19,7 @@ app.get("/", (req, res) => {
 
 // Index route - show all of the drinks
 app.get("/budget/", (req, res) => {
-  res.render("index.ejs", {budgetAll: budget});
+  res.render("index.ejs", {budgetAll: budget, bankAccount});
 });
 
 // New route
@@ -32,8 +34,8 @@ app.get("/budget/:id", (req, res) => {
 
 // Post route
 app.post('/budget', (req, res) => {
-  budget.push(req.body);
-  res.redirect('/budget'); //send the user back to /fruits
+    budget.push(req.body);
+    res.redirect('/budget'); //send the user back to /fruits
 });
 
 
