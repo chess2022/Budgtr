@@ -7,6 +7,7 @@ const budget = require("./models/budget.js");
 let bankAccount = 0;
 
 
+
 // Declare middleware
 app.use("/static", express.static("public"));
 app.use(express.urlencoded({ extended: false }));
@@ -19,6 +20,9 @@ app.get("/", (req, res) => {
 
 // Index route - show all of the drinks
 app.get("/budget/", (req, res) => {
+    let bankAccount = budget.reduce((total, item) => {
+      return parseInt(total) + parseInt(item.amount);
+    }, 0);
   res.render("index.ejs", {budgetAll: budget, bankAccount});
 });
 
@@ -34,13 +38,11 @@ app.get("/budget/:id", (req, res) => {
 
 // Post route
 app.post('/budget', (req, res) => {
+    // let newEntry = 
     budget.push(req.body);
-    res.redirect('/budget'); //send the user back to /fruits
+    // res.send({newEntry});
+    res.redirect('/budget'); //send the user back to /budget
 });
-
-
-
-
 
 
 
