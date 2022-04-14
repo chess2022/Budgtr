@@ -12,7 +12,7 @@
     <div class="container">
         <h1>Ramen or Caviar?</h1>
         <div class="total">
-            <h5> Your balance is $<%= bankAccount%></h5>
+            <h5 id="balance"> Your balance is $<%= bankAccount%></h5>
         </div>
         <table>
              <% for( let expenditure in budgetAll ) { %>
@@ -25,6 +25,6 @@
         </table>
             <button onclick="window.location.href='/budget/new'">Add Item</button>
     </div>
-    
+
 </body>
 </html>
