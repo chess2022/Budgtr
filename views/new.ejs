@@ -13,9 +13,9 @@
         <h1>Add a new item</h1>
 
         <form action="/budget" method="post">
-            <div><label>Date: </label><input type="text" name="date" placeholder="Month day" required/></div>
+            <div><label>Date: </label><input type="date" name="date" placeholder="Month day" required/></div>
             <div><label>Name: </label><input type="text" name="name" placeholder="Item Name" required/></div>
-            <div><label>Amount: </label><input type="text" name="amount" placeholder="Numbers only" required/></div>
+            <div><label>Amount: </label><input type="number" name="amount" placeholder="Numbers only" required/></div>
             <div><label>From:</label> <input type="text" name="from" placeholder="Who gave/received this" /></div>
             <div><label>Tags: </label><input type="text" name="tags"/></div>
             <div><input type="submit" value="Add Deposit or Withdrawl"/></div>

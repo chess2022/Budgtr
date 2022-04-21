@@ -16,19 +16,18 @@ app.get("/", (req, res) => {
   res.send("Welcome to Budgtr!");
 });
 
-// Index route - show all of the drinks
+// Index route - show all of the expenditures
 app.get("/budget/", (req, res) => {
+    let color = ''
     let bankAccount = budget.reduce((total, item) => {
       return parseInt(total) + parseInt(item.amount);
-    }, 0);
-    (function () { 
-    let document = "public/index.ejs"
+    }, 0); 
         if (bankAccount< 0) {
-            document.getElementByClass("total").style.backgroundColor = "red";
+            color = "red";
         } else if (bankAccount>1000){
-            document.getElementByClass("total").style.backgroundColor = "green";
-        }});
-        res.render("index.ejs", {budgetAll: budget, bankAccount});
+            color = "green";
+        };
+        res.render("index.ejs", {budgetAll: budget, bankAccount, color});
 });
 
 // New route
